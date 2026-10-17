@@ -1,0 +1,9 @@
+metric,value
+roc_auc,0.818
+hit_rate_top_5pct,0.75
+hit_rate_top_10pct,0.75
+deposit_median_percentile,98.0
+n_rock_sites,4
+n_positive_px,36
+n_background_px,5000
+ablation_continuum_removed_auc,0.462

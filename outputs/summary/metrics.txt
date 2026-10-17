@@ -1,0 +1,87 @@
+========================================================================
+QUANTUM MINERAL DETECTION — FINAL RESULTS
+========================================================================
+Train positives: 48.3%
+
+A_PCA
+  AUC     = 0.7492  95%CI = [0.7171, 0.7795]
+  F1      = 0.6482
+  MCC     = 0.3157
+  kappa   = 0.3124
+  bal_acc = 0.6583
+  PR-AUC  = 0.7478
+  Brier   = 0.2049
+  CM: TN=284  FP=177  FN=115  TP=269
+
+B_PCA_CAE
+  AUC     = 0.7617  95%CI = [0.7310, 0.7920]
+  F1      = 0.6621
+  MCC     = 0.3214
+  kappa   = 0.3116
+  bal_acc = 0.6594
+  PR-AUC  = 0.7653
+  Brier   = 0.2036
+  CM: TN=261  FP=200  FN=95  TP=289
+
+C_PCA_QAE
+  AUC     = 0.7702  95%CI = [0.7388, 0.8009]
+  F1      = 0.6751
+  MCC     = 0.3510
+  kappa   = 0.3413
+  bal_acc = 0.6744
+  PR-AUC  = 0.7728
+  Brier   = 0.2010
+  CM: TN=270  FP=191  FN=91  TP=293
+
+D_QSVM
+  AUC     = 0.5128  95%CI = [0.4732, 0.5516]
+  F1      = 0.5442
+  MCC     = 0.0661
+  kappa   = 0.0638
+  bal_acc = 0.5327
+  PR-AUC  = 0.4579
+  Brier   = 0.2500
+  CM: TN=203  FP=258  FN=144  TP=240
+
+F_QAA_Hybrid
+  AUC     = 0.6869  95%CI = [0.6518, 0.7225]
+  F1      = 0.4512
+  MCC     = 0.3515
+  kappa   = 0.2765
+  bal_acc = 0.6309
+  PR-AUC  = 0.6908
+  Brier   = 0.2561
+  CM: TN=440  FP=21  FN=266  TP=118
+
+C2_QAE_QSVM
+  AUC     = 0.4710  95%CI = [0.4294, 0.5094]
+  F1      = 0.5483
+  MCC     = -0.0572
+  kappa   = -0.0465
+  bal_acc = 0.4754
+  PR-AUC  = 0.4329
+  Brier   = 0.2521
+  CM: TN=101  FP=360  FN=103  TP=281
+
+C3_QAE_VQC
+  AUC     = 0.5256  95%CI = [0.4868, 0.5651]
+  F1      = 0.5927
+  MCC     = 0.1379
+  kappa   = 0.1282
+  bal_acc = 0.5663
+  PR-AUC  = 0.4867
+  Brier   = 0.2575
+  CM: TN=192  FP=269  FN=109  TP=275
+
+--------------------------------------------------
+McNemar Statistical Tests
+--------------------------------------------------
+  C_PCA_QAE vs B_PCA_CAE:  chi2=2.62  p=0.1056  not significant
+  C_PCA_QAE vs A_PCA:  chi2=0.96  p=0.3261  not significant
+  B_PCA_CAE vs A_PCA:  chi2=0.05  p=0.8197  not significant
+  F_QAA_Hybrid vs A_PCA:  chi2=0.05  p=0.8255  not significant
+  F_QAA_Hybrid vs C_PCA_QAE:  chi2=0.04  p=0.8337  not significant
+  C2_QAE_QSVM vs C_PCA_QAE:  chi2=106.93  p=0.0000  SIGNIFICANT
+  C3_QAE_VQC vs C_PCA_QAE:  chi2=44.24  p=0.0000  SIGNIFICANT
+  C2_QAE_QSVM vs C3_QAE_VQC:  chi2=49.34  p=0.0000  SIGNIFICANT
+  C2_QAE_QSVM vs D_QSVM:  chi2=15.86  p=0.0001  SIGNIFICANT

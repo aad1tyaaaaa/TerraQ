@@ -1,0 +1,220 @@
+{
+ "type": "FeatureCollection",
+ "metadata": {
+  "source": "USGS MRDS (Mineral Resources Data System)",
+  "scope": "Validation reference set for the Clayton Valley / Silver Peak area only \u2014 not a global deposit database.",
+  "count": 11,
+  "generated_by": "product/export_console_data.py"
+ },
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -117.70562,
+     37.11025
+    ]
+   },
+   "properties": {
+    "site": "Lithium Occurrence",
+    "commodity": "lithium",
+    "code": "Li",
+    "mrds_status": "Prospect",
+    "region": "NV",
+    "dep_id": "10115142",
+    "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10115142"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -117.49261,
+     37.09996
+    ]
+   },
+   "properties": {
+    "site": "Little Sand Spring Lithium",
+    "commodity": "lithium",
+    "code": "Li",
+    "mrds_status": "Occurrence",
+    "region": "NV",
+    "dep_id": "10261111",
+    "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10261111"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -117.63981,
+     37.75272
+    ]
+   },
+   "properties": {
+    "site": "Silver Peak Marsh",
+    "commodity": "lithium",
+    "code": "Li",
+    "mrds_status": "Producer",
+    "region": "NV",
+    "dep_id": "10023695",
+    "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10023695"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -117.63425,
+     37.74994
+    ]
+   },
+   "properties": {
+    "site": "Silver Peak",
+    "commodity": "lithium",
+    "code": "Li",
+    "mrds_status": "Producer",
+    "region": "NV",
+    "dep_id": "10024762",
+    "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10024762"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -117.5912,
+     37.75855
+    ]
+   },
+   "properties": {
+    "site": "Foote Lithium Brine Operation",
+    "commodity": "lithium",
+    "code": "Li",
+    "mrds_status": "Producer",
+    "region": "NV",
+    "dep_id": "10047125",
+    "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10047125"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -117.5833,
+     37.7672
+    ]
+   },
+   "properties": {
+    "site": "Silver Peak Lithium Operations",
+    "commodity": "lithium",
+    "code": "Li",
+    "mrds_status": "Plant",
+    "region": "NV",
+    "dep_id": "10295160",
+    "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10295160"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -117.54122,
+     37.84684
+    ]
+   },
+   "properties": {
+    "site": "Foote Mineral Co",
+    "commodity": "lithium",
+    "code": "Li",
+    "mrds_status": "Past Producer",
+    "region": "NV",
+    "dep_id": "10295591",
+    "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10295591"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -117.11786,
+     38.43826
+    ]
+   },
+   "properties": {
+    "site": "Baxter Spring Prospect",
+    "commodity": "vanadium",
+    "code": "V",
+    "mrds_status": "Producer",
+    "region": "NV",
+    "dep_id": "10310368",
+    "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10310368"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -117.0937,
+     38.49993
+    ]
+   },
+   "properties": {
+    "site": "Hiatt Beryl-Fluorite",
+    "commodity": "vanadium",
+    "code": "V",
+    "mrds_status": "Occurrence",
+    "region": "NV",
+    "dep_id": "10045760",
+    "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10045760"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -117.81343,
+     37.72911
+    ]
+   },
+   "properties": {
+    "site": "Mohawk Mine",
+    "commodity": "vanadium",
+    "code": "V",
+    "mrds_status": "Producer",
+    "region": "NV",
+    "dep_id": "10046778",
+    "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10046778"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -117.20372,
+     38.72913
+    ]
+   },
+   "properties": {
+    "site": "Topaz Prospect",
+    "commodity": "vanadium",
+    "code": "V",
+    "mrds_status": "Prospect",
+    "region": "NV",
+    "dep_id": "10198535",
+    "url": "https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10198535"
+   }
+  }
+ ]
+}

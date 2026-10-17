@@ -1,0 +1,5 @@
+region,site,codes,status,lat,lon,dep_id,url
+NV,Baxter Spring Prospect,AU AG AS BA P V ZN,Producer,38.438260,-117.117860,10310368,https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10310368
+NV,Hiatt Beryl-Fluorite,BE F W V,Occurrence,38.499930,-117.093700,10045760,https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10045760
+NV,Mohawk Mine,AG AU PB ZN CU U V,Producer,37.729110,-117.813430,10046778,https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10046778
+NV,Topaz Prospect,V CD MO ZN,Prospect,38.729130,-117.203720,10198535,https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10198535

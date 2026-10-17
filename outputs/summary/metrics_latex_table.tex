@@ -1,0 +1,19 @@
+\begin{table}[htbp]
+\centering
+\caption{Mineral Detection Performance Comparison (Test Set)}
+\label{tab:results}
+\begin{tabular}{lcccccc}
+\toprule
+Method & AUC (95\% CI) & F1 & MCC & Precision & Recall & McNemar$^*$ \\
+\midrule
+A_PCA & 0.7467 [0.715, 0.777] & 0.6496 & 0.3249 & nan & nan & $p$=0.693 \\
+B_PCA_CAE & 0.7440 [0.712, 0.776] & 0.6569 & 0.3030 & nan & nan & $p$=0.013 \\
+C_PCA_QAE & 0.7706 [0.738, 0.803] & 0.6736 & 0.3496 & nan & nan & $p$=-- \\
+D_QSVM & 0.5222 [0.484, 0.561] & 0.4485 & -0.0197 & nan & nan & $p$=-- \\
+F_QAA_Hybrid & 0.6341 [0.596, 0.670] & 0.6246 & 0.2076 & nan & nan & $p$=0.000 \\
+C2_QAE_QSVM & 0.4633 [0.425, 0.503] & 0.3559 & -0.1038 & nan & nan & $p$=0.000 \\
+C3_QAE_VQC & 0.6688 [0.633, 0.706] & 0.6531 & 0.2219 & nan & nan & $p$=0.000 \\
+\bottomrule
+\multicolumn{7}{l}{\footnotesize $^*$McNemar vs C\_PCA\_QAE; bold = $p < 0.05$}\\
+\end{tabular}
+\end{table}

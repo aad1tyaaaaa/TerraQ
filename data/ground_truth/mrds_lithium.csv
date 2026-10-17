@@ -1,0 +1,8 @@
+region,site,codes,status,lat,lon,dep_id,url
+NV,Lithium Occurrence,LI,Prospect,37.110250,-117.705620,10115142,https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10115142
+NV,Little Sand Spring Lithium,LI,Occurrence,37.099960,-117.492610,10261111,https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10261111
+NV,Silver Peak Marsh,BR LI NA_H CLY B,Producer,37.752720,-117.639810,10023695,https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10023695
+NV,Silver Peak,LI,Producer,37.749940,-117.634250,10024762,https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10024762
+NV,Foote Lithium Brine Operation.,LI,Producer,37.758550,-117.591200,10047125,https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10047125
+NV,Silver Peak Lithium Operations,LI B K NA_S,Plant,37.767200,-117.583300,10295160,https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10295160
+NV,Foote Mineral Co.,LI,Past Producer,37.846840,-117.541220,10295591,https://mrdata.usgs.gov/mrds/show-mrds.php?dep_id=10295591

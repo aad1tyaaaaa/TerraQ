@@ -1,0 +1,217 @@
+{
+ "note": "Reported critical-mineral occurrences used to make the search box useful for this domain. Coordinates are town/district centroids resolved by a public geocoder, NOT deposit outlines, and NOT measurements by this system. Presence here is not evidence of anything — press Analyze to get a measured value.",
+ "reported_source": "Figures supplied by the project owner from public reporting. They are third-party claims that this system has neither produced nor verified, and no resource classification (inferred / indicated / measured) was stated for them — check the original source before relying on any of them.",
+ "generated_by": "product/build_gazetteer.py",
+ "count": 12,
+ "omitted_unresolved": [],
+ "sites": [
+  {
+   "label": "Salal-Haimana, Reasi",
+   "commodity": "lithium",
+   "region": "Jammu & Kashmir",
+   "setting": "Bauxite-associated clay occurrence",
+   "aliases": [
+    "Salal",
+    "Haimana",
+    "Reasi"
+   ],
+   "lat": 33.0812,
+   "lon": 74.8324,
+   "resolved_from": "Reasi",
+   "resolved_name": "Reasi",
+   "geocoder": "open-meteo",
+   "precision": "town/district centroid — not the deposit outline",
+   "reported": "~5.9 million tonnes lithium"
+  },
+  {
+   "label": "Katghora, Korba",
+   "commodity": "lithium",
+   "region": "Chhattisgarh",
+   "setting": "Hard-rock pegmatite block",
+   "aliases": [
+    "Katghora",
+    "Korba"
+   ],
+   "lat": 22.5025,
+   "lon": 82.5428,
+   "resolved_from": "Katghora",
+   "resolved_name": "Katghora",
+   "geocoder": "open-meteo",
+   "precision": "town/district centroid — not the deposit outline",
+   "reported": "India's first commercially auctioned lithium block"
+  },
+  {
+   "label": "Marlagalla-Allapatna, Mandya",
+   "commodity": "lithium",
+   "region": "Karnataka",
+   "setting": "Pegmatite occurrence",
+   "aliases": [
+    "Marlagalla",
+    "Allapatna",
+    "Mandya"
+   ],
+   "lat": 12.5223,
+   "lon": 76.8975,
+   "resolved_from": "Mandya",
+   "resolved_name": "Mandya",
+   "geocoder": "open-meteo",
+   "precision": "town/district centroid — not the deposit outline",
+   "reported": "~1,600 tonnes lithium"
+  },
+  {
+   "label": "Sambhar Salt Lake",
+   "commodity": "lithium",
+   "region": "Rajasthan",
+   "setting": "Saline brine — NOT detectable optically",
+   "aliases": [
+    "Sambhar",
+    "Sambhar Lake"
+   ],
+   "lat": 26.9081,
+   "lon": 75.1914,
+   "resolved_from": "Sambhar",
+   "resolved_name": "Sāmbhar",
+   "geocoder": "open-meteo",
+   "precision": "town/district centroid — not the deposit outline",
+   "reported": "Saline brine under exploration for liquid extraction"
+  },
+  {
+   "label": "Jodhpur paleo-channel brines",
+   "commodity": "lithium",
+   "region": "Rajasthan",
+   "setting": "Sub-surface brine — NOT detectable optically",
+   "aliases": [
+    "Jodhpur"
+   ],
+   "lat": 26.2684,
+   "lon": 73.0059,
+   "resolved_from": "Jodhpur",
+   "resolved_name": "Jodhpur",
+   "geocoder": "open-meteo",
+   "precision": "town/district centroid — not the deposit outline",
+   "reported": "Paleo-channel brines under exploratory drilling"
+  },
+  {
+   "label": "Barmer paleo-channel brines",
+   "commodity": "lithium",
+   "region": "Rajasthan",
+   "setting": "Sub-surface brine — NOT detectable optically",
+   "aliases": [
+    "Barmer"
+   ],
+   "lat": 25.7457,
+   "lon": 71.3921,
+   "resolved_from": "Barmer",
+   "resolved_name": "Bārmer",
+   "geocoder": "open-meteo",
+   "precision": "town/district centroid — not the deposit outline",
+   "reported": "Paleo-channel brines under exploratory drilling"
+  },
+  {
+   "label": "Papum Pare (Depo / Tamang)",
+   "commodity": "vanadium",
+   "region": "Arunachal Pradesh",
+   "setting": "Carbonaceous phyllite",
+   "aliases": [
+    "Papum Pare",
+    "Depo",
+    "Tamang",
+    "Daba Gamlin",
+    "Itanagar"
+   ],
+   "lat": 27.0869,
+   "lon": 93.6099,
+   "resolved_from": "Itanagar",
+   "resolved_name": "Itanagar",
+   "geocoder": "open-meteo",
+   "precision": "town/district centroid — not the deposit outline",
+   "reported": "13.79 million tonnes primary land-based vanadium"
+  },
+  {
+   "label": "Gulf of Khambhat (Alang coast)",
+   "commodity": "vanadium",
+   "region": "Gujarat",
+   "setting": "Offshore titanomagnetite sediment — marine, not land surface",
+   "aliases": [
+    "Khambhat",
+    "Alang",
+    "Cambay"
+   ],
+   "lat": 21.3988,
+   "lon": 72.1754,
+   "resolved_from": "Alang",
+   "resolved_name": "Alang",
+   "geocoder": "open-meteo",
+   "precision": "town/district centroid — not the deposit outline",
+   "reported": "Offshore vanadium-enriched titanomagnetite"
+  },
+  {
+   "label": "Mayurbhanj",
+   "commodity": "vanadium",
+   "region": "Odisha",
+   "setting": "Vanadiferous titanomagnetite belt",
+   "aliases": [
+    "Mayurbhanj",
+    "Baripada"
+   ],
+   "lat": 21.9346,
+   "lon": 86.7285,
+   "resolved_from": "Baripada",
+   "resolved_name": "Baripāda",
+   "geocoder": "open-meteo",
+   "precision": "town/district centroid — not the deposit outline",
+   "reported": "Vanadiferous titanomagnetite processed for V recovery"
+  },
+  {
+   "label": "Dublabera, East Singhbhum",
+   "commodity": "vanadium",
+   "region": "Jharkhand",
+   "setting": "Titaniferous magnetite belt",
+   "aliases": [
+    "Dublabera",
+    "Singhbhum",
+    "Jamshedpur"
+   ],
+   "lat": 22.8028,
+   "lon": 86.1855,
+   "resolved_from": "Jamshedpur",
+   "resolved_name": "Jamshedpur",
+   "geocoder": "open-meteo",
+   "precision": "town/district centroid — not the deposit outline",
+   "reported": "Vanadium as a by-product of titaniferous magnetite"
+  },
+  {
+   "label": "Shimoga iron-ore belt",
+   "commodity": "vanadium",
+   "region": "Karnataka",
+   "setting": "Iron-ore pockets, V recovered as slag by-product",
+   "aliases": [
+    "Shimoga",
+    "Shivamogga"
+   ],
+   "lat": 13.9316,
+   "lon": 75.5679,
+   "resolved_from": "Shivamogga",
+   "resolved_name": "Shivamogga",
+   "geocoder": "open-meteo",
+   "precision": "town/district centroid — not the deposit outline",
+   "reported": "Vanadium recovered as slag during steel manufacture"
+  },
+  {
+   "label": "Hassan iron-ore belt",
+   "commodity": "vanadium",
+   "region": "Karnataka",
+   "setting": "Iron-ore pockets, V recovered as slag by-product",
+   "aliases": [
+    "Hassan"
+   ],
+   "lat": 13.0071,
+   "lon": 76.0962,
+   "resolved_from": "Hassan",
+   "resolved_name": "Hassan",
+   "geocoder": "open-meteo",
+   "precision": "town/district centroid — not the deposit outline",
+   "reported": "Vanadium recovered as slag during steel manufacture"
+  }
+ ]
+}

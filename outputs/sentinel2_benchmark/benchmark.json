@@ -1,0 +1,56 @@
+{
+  "dataset": "Sentinel-2 L2A clay/Al-OH lithium index (cached Clayton Valley run)",
+  "note": "Indicative validation only. Positives are a small, spatially clustered set of known MRDS lithium occurrences (mostly Silver Peak); brine-playa points correctly fall on masked/low pixels. Not a generalisation accuracy.",
+  "n_deposit_sites_total": 5,
+  "n_sites_on_valid_rock": 4,
+  "n_positive_pixels": 36,
+  "n_background_pixels": 5000,
+  "roc_auc": 0.822,
+  "mannwhitney_p_one_sided": 1.28e-11,
+  "z": 6.67,
+  "hitrate_at_top_5pct": 0.75,
+  "hitrate_at_top_10pct": 0.75,
+  "deposit_median_percentile": 98.0,
+  "deposits": [
+    {
+      "site": "Silver Peak Marsh",
+      "lat": 37.75272,
+      "lon": -117.63981,
+      "score": 0.243,
+      "percentile": 31.4,
+      "on_valid_rock": true
+    },
+    {
+      "site": "Silver Peak",
+      "lat": 37.74994,
+      "lon": -117.63425,
+      "score": 1.0,
+      "percentile": 98.0,
+      "on_valid_rock": true
+    },
+    {
+      "site": "Foote Lithium Brine Operation.",
+      "lat": 37.75855,
+      "lon": -117.5912,
+      "score": 1.0,
+      "percentile": 98.0,
+      "on_valid_rock": true
+    },
+    {
+      "site": "Silver Peak Lithium Operations",
+      "lat": 37.7672,
+      "lon": -117.5833,
+      "score": 1.0,
+      "percentile": 98.0,
+      "on_valid_rock": true
+    },
+    {
+      "site": "Foote Mineral Co.",
+      "lat": 37.84684,
+      "lon": -117.54122,
+      "score": 0.0,
+      "percentile": 0.0,
+      "on_valid_rock": false
+    }
+  ]
+}

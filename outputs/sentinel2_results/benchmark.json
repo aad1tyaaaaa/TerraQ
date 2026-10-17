@@ -1,0 +1,45 @@
+{
+  "product": "Sentinel-2 L2A lithium surface-alteration index (B11/B12 clay ratio)",
+  "scene": "Clayton Valley / Silver Peak, Nevada",
+  "ground_truth": "USGS MRDS known lithium occurrences",
+  "roc_auc": 0.818,
+  "hit_rate_top_5pct": 0.75,
+  "hit_rate_top_10pct": 0.75,
+  "n_rock_sites": 4,
+  "n_positive_px": 36,
+  "n_background_px": 5000,
+  "deposit_median_percentile": 98.0,
+  "ablation_continuum_removed_auc": 0.462,
+  "deposits": [
+    {
+      "site": "Silver Peak Marsh",
+      "score": 0.243,
+      "percentile": 31.4,
+      "on_rock": true
+    },
+    {
+      "site": "Silver Peak",
+      "score": 1.0,
+      "percentile": 98.0,
+      "on_rock": true
+    },
+    {
+      "site": "Foote Lithium Brine Operation.",
+      "score": 1.0,
+      "percentile": 98.0,
+      "on_rock": true
+    },
+    {
+      "site": "Silver Peak Lithium Operations",
+      "score": 1.0,
+      "percentile": 98.0,
+      "on_rock": true
+    },
+    {
+      "site": "Foote Mineral Co.",
+      "score": 0.0,
+      "percentile": 0.0,
+      "on_rock": false
+    }
+  ]
+}

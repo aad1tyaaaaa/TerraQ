@@ -1,0 +1,78 @@
+# ===========================================================================
+#  .gitignore — keep the repo small. Big data & generated artifacts are NOT
+#  pushed; they are regenerated or downloaded separately (see data/README.md).
+# ===========================================================================
+
+# ---------- Python ----------
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+build/
+dist/
+
+# ---------- Virtual environments (large, machine-specific) ----------
+.venv/
+venv/
+env/
+
+# ---------- Node / Next.js  (terraq dashboard) ----------
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+next-env.d.ts
+
+# ---------- LARGE DATA — never upload (20 GB+); regenerate/download separately ----------
+data/processed/
+data/EO1H*/
+usgs_splib07/
+*.npy
+*.h5
+*.hdf5
+*.TIF
+*.TIF.aux.xml
+*.tif
+*.tiff
+*.zip
+# ...but DO keep the tiny ground-truth CSVs (real validation labels)
+!data/ground_truth/
+!data/ground_truth/*.csv
+
+# ---------- GENERATED OUTPUTS — ignore by default ----------
+outputs/*
+!outputs/.gitkeep
+# keep only the small, presentable result reports (figures + metrics)
+!outputs/summary/
+!outputs/sentinel2_results/
+!outputs/sentinel2_benchmark/
+# never the heavy per-request cache or demo dumps, even if nested
+outputs/jobs/
+outputs/product_demo_*/
+
+# ---------- Logs / runtime ----------
+.logs/
+*.log
+nohup.out
+pipeline_log.txt
+run_log*.txt
+
+# ---------- OS / IDE ----------
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.code-workspace
+
+# ---------- Notebooks / model checkpoints ----------
+.ipynb_checkpoints/
+*.ipynb
+checkpoints/
+*.pt
+*.pth
+
+# ---------- Secrets ----------
+.env*
+!.env.example
