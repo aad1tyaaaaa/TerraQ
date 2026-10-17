@@ -1,0 +1,8 @@
+# Live Sentinel-2 engine only (product/server.py) — used by the Render deploy.
+# The quantum research stack (pennylane, torch) lives in the root requirements.txt.
+numpy>=1.24
+scipy>=1.11
+matplotlib>=3.7
+pillow>=10.0
+rasterio>=1.3
+pyproj>=3.4

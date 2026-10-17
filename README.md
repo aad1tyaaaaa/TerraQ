@@ -1,88 +1,103 @@
-# Quantum Autoencoder for Anomaly Detection in Satellite Imagery
+<p align="center">
+  <img src="terraq/public/terraq-logo.png" alt="TerraQ — Quantum Intelligence for Earth Exploration" width="280">
+</p>
 
-> A **hybrid quantum–classical pipeline** for lithium & vanadium mineral prospecting from satellite hyperspectral / multispectral imagery — combining a 6‑qubit Quantum Autoencoder (QAE) detector, a reproducible benchmark of 7 methods, and a live web dashboard.
-
-[![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue)](https://www.python.org/)
-[![PennyLane ≥0.38](https://img.shields.io/badge/pennylane-%E2%89%A50.38-orange)](https://pennylane.ai/)
-[![Next.js](https://img.shields.io/badge/next.js-dashboard-black)](https://nextjs.org/)
-[![Status](https://img.shields.io/badge/status-research%20prototype-yellow)]()
+<h3 align="center">Hybrid quantum–classical mineral prospecting from satellite imagery</h3>
 
 <p align="center">
-  <img src="outputs/sentinel2_results/silver_peak_validation.png" alt="Silver Peak lithium validation" width="80%">
+  A 6‑qubit Quantum Autoencoder for lithium &amp; vanadium detection in hyperspectral data,
+  a live Sentinel‑2 prospectivity engine, and an interactive web console.
 </p>
-<p align="center"><i>Model prospectivity vs. known USGS lithium deposits — Clayton Valley / Silver Peak, Nevada.</i></p>
+
+<p align="center">
+  <a href="https://www.python.org/"><img src="https://img.shields.io/badge/Python-3.12-3776AB?logo=python&logoColor=white" alt="Python"></a>
+  <a href="https://pennylane.ai/"><img src="https://img.shields.io/badge/PennyLane-0.38-00B4D8" alt="PennyLane"></a>
+  <a href="https://pytorch.org/"><img src="https://img.shields.io/badge/PyTorch-2.x-EE4C2C?logo=pytorch&logoColor=white" alt="PyTorch"></a>
+  <a href="https://nextjs.org/"><img src="https://img.shields.io/badge/Next.js-16-000000?logo=nextdotjs&logoColor=white" alt="Next.js"></a>
+  <a href="https://react.dev/"><img src="https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black" alt="React"></a>
+  <a href="https://www.typescriptlang.org/"><img src="https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white" alt="TypeScript"></a>
+  <img src="https://img.shields.io/badge/status-research%20prototype-F5B700" alt="Status">
+</p>
+
+<p align="center">
+  <a href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Faad1tyaaaaa%2FTerraQ&root-directory=terraq&env=NEXT_PUBLIC_ENGINE_URL&envDescription=URL%20of%20the%20deployed%20Render%20engine"><img src="https://vercel.com/button" alt="Deploy with Vercel"></a>
+  &nbsp;
+  <a href="https://render.com/deploy?repo=https://github.com/aad1tyaaaaa/TerraQ"><img src="https://render.com/images/deploy-to-render-button.svg" alt="Deploy to Render"></a>
+</p>
 
 ---
 
-## Table of Contents
+## Contents
 
-1. [What this project is](#what-this-project-is)
-2. [The three components](#the-three-components)
-3. [Key results](#key-results)
-4. [How it works](#how-it-works)
-5. [Gallery](#gallery)
-6. [Repository structure](#repository-structure)
-7. [Setup & run](#setup--run)
-8. [Reproducibility](#reproducibility)
-9. [Honest scope & limitations](#honest-scope--limitations)
-10. [References](#references)
+- [Overview](#overview)
+- [Tech stack](#tech-stack)
+- [Key results](#key-results)
+- [Architecture](#architecture)
+- [Gallery](#gallery)
+- [Getting started](#getting-started)
+- [Deployment](#deployment)
+- [Repository structure](#repository-structure)
+- [Reproducibility](#reproducibility)
+- [Scope &amp; limitations](#scope--limitations)
+- [References](#references)
 
 ---
 
-## What this project is
+## Overview
 
-Classical hyperspectral mineral detection struggles on high‑dimensional, noisy
-satellite data — the curse of dimensionality, correlated bands, and weak/overlapping
-mineral absorption features all reduce sensitivity. This project asks a focused
-question:
+Classical hyperspectral mineral detection struggles with high‑dimensional, noisy
+satellite data: correlated bands and weak, overlapping absorption features reduce
+sensitivity. TerraQ asks a focused question:
 
 > **Can a quantum autoencoder encode spectral patterns that a classical autoencoder
 > of identical bottleneck width cannot — and does that improve mineral detection?**
 
-To answer it, the project benchmarks **seven detection methods** (classical → fully
-quantum) on NASA EO‑1 **Hyperion** scenes, and ships a separate **classical
-Sentinel‑2 engine + web dashboard** so anyone can scan a real location on demand.
+The project has three parts:
+
+| Component | Folder | What it does | Quantum? |
+|---|---|---|---|
+| **Research pipeline** | `src/`, `experiments/` | Trains and benchmarks 7 detection methods on NASA EO‑1 Hyperion imagery | ✅ QAE · QAA · QSVM · VQC |
+| **Prospectivity engine** | `product/` | Turns any lat/lon into lithium / vanadium maps from live Sentinel‑2 data | ❌ Classical spectral indices |
+| **Web console** | `terraq/` | Next.js dashboard, results explorer and live‑analysis UI | ❌ UI layer |
+
+> **Note:** the quantum results come from the research pipeline on Hyperion. The live
+> maps in the web console come from the classical Sentinel‑2 engine.
 
 ---
 
-## The three components
+## Tech stack
 
-| Component | Folder | What it is | Quantum? |
-|---|---|---|---|
-| **Research pipeline** | `experiments/`, `src/` | Trains & benchmarks all 7 methods on Hyperion, produces every figure/metric | ✅ Yes (QAE / QAA / QSVM / VQC) |
-| **Live engine** | `product/` | Turns a lat/lon into lithium/vanadium prospectivity maps from live Sentinel‑2 data | ❌ Classical spectral indices |
-| **Web dashboard** | `terraq/` | Next.js front‑end visualising results + a "Live Analysis" tab driven by the engine | ❌ UI layer |
-
-> ⚠️ **Important distinction:** the quantum advantage is demonstrated in the **research
-> pipeline** on Hyperion. The **live dashboard maps** come from the fast **classical**
-> Sentinel‑2 engine. Do not present the Sentinel‑2 maps as "quantum results."
+| Layer | Technologies |
+|---|---|
+| **Quantum ML** | PennyLane (simulator), Hardware‑Efficient Ansatz QAE, ZZFeatureMap QSVM, VQC |
+| **Classical ML** | PyTorch, scikit‑learn (RF · Gradient Boosting · SVM ensemble), PCA, NumPy, SciPy |
+| **Geospatial** | Rasterio (bundled GDAL), PyProj, Sentinel‑2 COGs via Element84 Earth Search STAC, USGS MRDS, USGS Spectral Library v7 |
+| **Backend** | Python standard‑library HTTP server (`product/server.py`), Matplotlib, Pillow |
+| **Frontend** | Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS 4, Radix UI / shadcn, MapLibre GL, Recharts, GSAP |
+| **AI assistant** | Groq / Gemini via server‑side API routes (optional, template fallback) |
+| **Deployment** | Vercel (web console) · Render (engine) |
 
 ---
 
 ## Key results
 
-> Measured on the temporal hold‑out test scene (Scene 3, never seen in training).
-> Source of truth: [`outputs/summary/metrics.txt`](outputs/summary/metrics.txt).
-> Train positive rate: 48.3 %.
+Measured on the temporal hold‑out test scene (Scene 3, never seen in training).
+Source of truth: [`outputs/summary/metrics.txt`](outputs/summary/metrics.txt).
 
 | Method | Description | AUC | F1 | MCC | 95% CI (AUC) |
 |---|---|---|---|---|---|
-| **A** PCA only | Classical baseline | 0.749 | 0.648 | 0.316 | [0.717, 0.780] |
-| **B** PCA + CAE | Classical autoencoder ablation | 0.762 | 0.662 | 0.321 | [0.731, 0.792] |
-| **C** PCA + QAE ★ | **6‑qubit Quantum Autoencoder (best)** | **0.770** | **0.675** | **0.351** | [0.739, 0.801] |
-| **F** QAA Hybrid | Unsupervised quantum anomaly + pseudo‑labels | 0.687 | 0.451 | 0.352 | [0.652, 0.723] |
-| **D** QSVM | Standalone ZZFeatureMap kernel SVM | 0.513 | 0.544 | 0.066 | [0.473, 0.552] |
-| **C3** QAE → VQC | End‑to‑end quantum classifier | 0.526 | 0.593 | 0.138 | [0.487, 0.565] |
-| **C2** QAE → QSVM | Stacked quantum pipeline | 0.471 | 0.548 | −0.057 | [0.429, 0.509] |
+| **A** | PCA only — classical baseline | 0.749 | 0.648 | 0.316 | [0.717, 0.780] |
+| **B** | PCA + classical autoencoder | 0.762 | 0.662 | 0.321 | [0.731, 0.792] |
+| **C** ★ | **PCA + 6‑qubit Quantum Autoencoder** | **0.770** | **0.675** | **0.351** | [0.739, 0.801] |
+| **F** | QAA hybrid — unsupervised anomaly + pseudo‑labels | 0.687 | 0.451 | 0.352 | [0.652, 0.723] |
+| **D** | QSVM — ZZFeatureMap kernel | 0.513 | 0.544 | 0.066 | [0.473, 0.552] |
+| **C3** | QAE → VQC, end‑to‑end quantum | 0.526 | 0.593 | 0.138 | [0.487, 0.565] |
+| **C2** | QAE → QSVM, stacked quantum | 0.471 | 0.548 | −0.057 | [0.429, 0.509] |
 
-**Headline:** Method **C (PCA + QAE)** is the top performer on every primary metric
-(AUC, F1, MCC). The quantum feature extractor adds **+2.1% AUC over the PCA baseline (A)**
-and **+0.9% AUC over the classical‑autoencoder ablation (B)** — a consistent, but modest, lift.
-
-**Statistical test (McNemar, paired):** at the patch level, C vs B gives χ² = 2.62,
-**p = 0.106**, i.e. the improvement is *not* statistically significant on this test set.
-This is reported honestly as a limitation, not hidden — see
-[Honest scope & limitations](#honest-scope--limitations).
+**Method C (PCA + QAE)** leads on AUC, F1 and MCC: **+2.1% AUC over the PCA baseline**
+and **+0.9% AUC over the classical‑autoencoder ablation**. A paired McNemar test
+(C vs B: χ² = 2.62, p = 0.106) shows the lift is consistent but **not yet statistically
+significant** — see [Scope &amp; limitations](#scope--limitations).
 
 <p align="center">
   <img src="outputs/summary/method_comparison_bar.png" alt="Method comparison" width="48%">
@@ -91,7 +106,19 @@ This is reported honestly as a limitation, not hidden — see
 
 ---
 
-## How it works
+## Architecture
+
+### Deployment topology
+
+```
+ ┌──────────────────────┐   HTTPS (CORS)   ┌───────────────────────────┐   STAC + COG   ┌──────────────────┐
+ │  Web console         │ ───────────────▶ │  Prospectivity engine     │ ─────────────▶ │  Sentinel-2 L2A  │
+ │  Next.js on Vercel   │  /api/analyze    │  Python on Render         │                │  (AWS open data) │
+ │  + /api/* (LLM, geo) │ ◀─────────────── │  product/server.py        │                └──────────────────┘
+ └──────────────────────┘   maps + JSON    └───────────────────────────┘
+```
+
+### Research pipeline
 
 ```
  Hyperion scene (198 bands, 30 m)
@@ -125,30 +152,31 @@ This is reported honestly as a limitation, not hidden — see
    F: unsupervised QAA on background only → pseudo-labels → ensemble
 ```
 
-**Method C (the contribution):** PCA(25) → tanh‑scaling → 6‑qubit Hardware‑Efficient
-Ansatz QAE (data re‑uploading + 3 variational layers) → 6 expectation values
-⟨Z₀⟩…⟨Z₅⟩, concatenated with the 25 PCA scores + 2 USGS spectral‑correlation features
-→ 33‑D vector → RF + GradientBoost + SVM ensemble.
-
-**QAE vs QAA:**
+**Method C:** PCA(25) → tanh scaling → 6‑qubit Hardware‑Efficient Ansatz QAE (data
+re‑uploading + 3 variational layers) → 6 expectation values ⟨Z₀⟩…⟨Z₅⟩, concatenated
+with the 25 PCA scores and 2 USGS spectral‑correlation features → 33‑D vector →
+RF + Gradient Boosting + SVM ensemble.
 
 | | QAE (C / C2 / C3) | QAA (F) |
 |---|---|---|
 | Type | Supervised feature extractor | Unsupervised anomaly detector |
-| Trains on | labeled mineral + background | background only |
+| Trains on | Labelled mineral + background | Background only |
 | Loss | MSE on reconstruction | 1 − P(trash = \|0000⟩) |
-| Output | 6 expectation values | scalar anomaly score ∈ [0,1] |
+| Output | 6 expectation values | Scalar anomaly score ∈ [0, 1] |
 
 ---
 
 ## Gallery
 
-**Research pipeline outputs** (Hyperion, all in [`outputs/summary/`](outputs/summary)):
+<p align="center">
+  <img src="outputs/sentinel2_results/silver_peak_validation.png" alt="Silver Peak lithium validation" width="80%">
+</p>
+<p align="center"><i>Engine prospectivity vs. known USGS lithium deposits — Clayton Valley / Silver Peak, Nevada.</i></p>
 
 <p align="center">
   <img src="outputs/summary/all_maps_grid.png" alt="All 7 detection maps" width="80%">
 </p>
-<p align="center"><i>Detection probability maps for all seven methods.</i></p>
+<p align="center"><i>Detection probability maps for all seven methods (Hyperion).</i></p>
 
 <p align="center">
   <img src="outputs/summary/confusion_matrices_test.png" alt="Confusion matrices" width="48%">
@@ -156,13 +184,119 @@ Ansatz QAE (data re‑uploading + 3 variational layers) → 6 expectation values
 </p>
 <p align="center"><i>Left: per‑method confusion matrices. Right: t‑SNE of PCA vs CAE vs QAE feature spaces.</i></p>
 
-**Live Sentinel‑2 engine output** (classical, [`outputs/sentinel2_results/`](outputs/sentinel2_results)):
-
 <p align="center">
   <img src="outputs/sentinel2_results/lithium_prospectivity_map.png" alt="Lithium prospectivity" width="48%">
   <img src="terraq/public/maps/confidence.png" alt="Confidence map" width="48%">
 </p>
-<p align="center"><i>Lithium (clay/Al‑OH) prospectivity and data‑confidence map for Clayton Valley, NV.</i></p>
+<p align="center"><i>Sentinel‑2 lithium (clay / Al‑OH) prospectivity and data‑confidence map, Clayton Valley, NV.</i></p>
+
+---
+
+## Getting started
+
+### Prerequisites
+
+- Python 3.12
+- Node.js 18+ (20 LTS recommended)
+
+### 1. Clone
+
+```bash
+git clone https://github.com/aad1tyaaaaa/TerraQ.git
+cd TerraQ
+```
+
+### 2. Run the web console + engine together
+
+```bash
+python3.12 -m venv .venv
+./.venv/bin/pip install -r product/requirements.txt   # engine only (lightweight)
+cd terraq && npm install && cd ..
+
+bash start.sh     # prints the URLs it bound to
+bash stop.sh      # stops only what start.sh started
+```
+
+`start.sh` prefers `:3000` (console) and `:8765` (engine) and falls back to the next free
+port if one is taken. Force ports with `DASH_PORT=3005 ENGINE_PORT=8770 bash start.sh`.
+
+### 3. Or run each part on its own
+
+**Web console** — every tab except *Live Analysis* works offline from committed images:
+
+```bash
+cd terraq
+cp .env.example .env.local    # optional: LLM keys, engine URL
+npm run dev                   # http://localhost:3000
+```
+
+**Prospectivity engine:**
+
+```bash
+./.venv/bin/python -u product/server.py      # http://localhost:8765
+
+# one-shot CLI for a single location
+./.venv/bin/python product/sentinel_engine.py --lat 37.7499 --lon -117.6342 --km 12 --out outputs/my_area
+```
+
+A cold request takes several minutes (~7 min for a 12 km radius): it streams
+Sentinel‑2 COGs from a public S3 bucket, so latency dominates. Repeat requests for the
+same `(lat, lon, km)` are served instantly from `outputs/jobs/`.
+
+**Quantum research pipeline (Hyperion):**
+
+```bash
+./.venv/bin/pip install -r requirements.txt   # full stack: PennyLane, PyTorch, …
+# place raw Hyperion scenes under data/ and preprocess — see data/README.md
+./.venv/bin/python experiments/run_pipeline.py          # ~1 h on CPU
+QMD_OUTPUT_DIR=outputs_rerun ./.venv/bin/python experiments/run_pipeline.py   # keep existing results
+```
+
+### Environment variables
+
+Set in `terraq/.env.local` locally, or in the Vercel project settings. All are optional.
+
+| Variable | Scope | Purpose |
+|---|---|---|
+| `NEXT_PUBLIC_ENGINE_URL` | Browser | Engine base URL (default `http://localhost:8765`) |
+| `LLM_PROVIDER` | Server | `groq` or `gemini` |
+| `GROQ_API_KEY` | Server | Groq key for target explanations / assistant |
+| `GROQ_MODEL`, `GROQ_FALLBACK_MODEL` | Server | Groq model chain |
+| `GEMINI_API_KEY` | Server | Backup LLM provider |
+
+Without LLM keys, explanations fall back to a deterministic template. Never prefix secret keys with `NEXT_PUBLIC_`.
+
+---
+
+## Deployment
+
+The console and the engine deploy separately. Deploy the **engine first**, because the
+console needs its URL.
+
+### 1. Engine → Render
+
+The repository includes a [`render.yaml`](render.yaml) Blueprint.
+
+1. Click **Deploy to Render** above, or go to *Render → New → Blueprint* and select this repo.
+2. Render installs `product/requirements.txt` and starts `python -u product/server.py`,
+   which binds to the `$PORT` Render provides.
+3. Copy the service URL, e.g. `https://terraq-engine.onrender.com`.
+
+### 2. Web console → Vercel
+
+1. Click **Deploy with Vercel** above, or import the repo at *vercel.com/new*.
+2. Set **Root Directory** to `terraq` (the button does this for you). Framework is auto‑detected as Next.js.
+3. Add environment variables: `NEXT_PUBLIC_ENGINE_URL` = your Render URL, plus any LLM keys.
+4. Deploy. Redeploy after changing `NEXT_PUBLIC_ENGINE_URL`, because it is inlined at build time.
+
+### Production notes
+
+- **Render free plan** sleeps after ~15 min idle (the first request then takes ~1 min to wake)
+  and has 512 MB RAM. Large search radii may need a paid instance.
+- The engine's job cache (`outputs/jobs/`) is on ephemeral disk and resets on redeploy.
+  Attach a Render persistent disk if you want to keep cached results.
+- The engine allows cross‑origin requests from any origin (`Access-Control-Allow-Origin: *`).
+  Restrict this in `product/server.py` if you deploy publicly.
 
 ---
 
@@ -170,11 +304,10 @@ Ansatz QAE (data re‑uploading + 3 variational layers) → 6 expectation values
 
 ```
 TerraQ/
-├── README.md                    ← this file
-├── PROBLEM_STATEMENT.md         ← scientific problem definition
-├── STRUCTURE.md                 ← detailed structure notes
-├── requirements.txt             ← Python dependencies
-├── start.sh / stop.sh           ← launch / stop dashboard + engine
+├── README.md
+├── render.yaml                  ← Render Blueprint (engine)
+├── requirements.txt             ← full research stack (PennyLane, PyTorch, …)
+├── start.sh / stop.sh           ← run console + engine locally
 │
 ├── experiments/
 │   └── run_pipeline.py          ← single entry point — runs all 7 methods
@@ -184,102 +317,22 @@ TerraQ/
 │   └── quantum/                 ← qae.py · qaa.py · qsvm.py · vqc.py
 │
 ├── product/                     ← classical Sentinel-2 engine + API server
+│   ├── requirements.txt         ← lean engine dependencies (Render)
 │   ├── sentinel_engine.py       ← coordinate → prospectivity maps
-│   ├── server.py                ← local HTTP API (port 8765)
-│   └── README.md
+│   └── server.py                ← HTTP API (port $PORT, default 8765)
 │
-├── terraq/                    ← Next.js web dashboard
-│   ├── app/  components/  hooks/  lib/
-│   └── public/maps/             ← committed map images (site works offline)
+├── terraq/                      ← Next.js web console (Vercel root directory)
+│   ├── app/                     ← routes: /, /dashboard, /explorer, /live-analysis, /api/*
+│   ├── components/  explorer/  hooks/  lib/
+│   └── public/                  ← logo, committed maps and figures
 │
-├── data/
-│   ├── ground_truth/*.csv       ← MRDS deposit labels (committed)
-│   ├── processed/               ← *.npy cubes (generated, gitignored)
-│   └── EO1H*/                   ← raw Hyperion TIFs (gitignored, ~17 GB)
-│
-├── outputs/
-│   ├── summary/                 ← all research figures + metrics (committed)
-│   ├── sentinel2_results/       ← engine demo outputs (committed)
-│   └── jobs/, product_demo_*/   ← regenerable runs (gitignored)
-│
+├── data/ground_truth/*.csv      ← USGS MRDS deposit labels
+├── outputs/summary/             ← research figures + metrics
+├── outputs/sentinel2_results/   ← engine validation outputs
 └── docs/                        ← paper outline, technical manual, quantum advantage
 ```
 
-> Large/regenerable assets (raw TIFs, processed cubes, `node_modules`, `.venv`,
-> build caches) are intentionally **gitignored** — the repo is ~16 MB and rebuilds
-> from the steps below.
-
----
-
-## Setup & run
-
-### Prerequisites
-- Python 3.12 and Node.js 18+
-- `git`
-
-### A. Both together — dashboard + engine (recommended)
-```bash
-python3.12 -m venv .venv
-./.venv/bin/pip install -r requirements.txt
-cd terraq && npm install && cd ..
-
-bash start.sh     # prints the URLs it actually bound to
-bash stop.sh      # stops only what start.sh started
-```
-`start.sh` prefers `:3000` (dashboard) and `:8765` (engine) but **falls back to the
-next free port** if something else on the machine already holds one — read the URLs
-it prints rather than assuming `:3000`. Force specific ports with
-`DASH_PORT=3005 ENGINE_PORT=8770 bash start.sh`.
-
-### B. Web dashboard only (works offline with the committed images)
-```bash
-cd terraq
-npm install
-npm run dev            # add `-- -p 3001` if :3000 is taken
-# open http://localhost:3000
-```
-Only the **Live Analysis** tab needs the engine; every other tab renders from images
-committed under `terraq/public/maps/`.
-
-### C. Live Analysis engine only (Sentinel‑2, classical)
-```bash
-./.venv/bin/python -u product/server.py     # API on http://localhost:8765
-```
-Use `-u`, or the per‑request progress log stays stuck in Python's block buffer.
-One‑shot CLI for a single location:
-```bash
-./.venv/bin/python product/sentinel_engine.py \
-    --lat 37.7499 --lon -117.6342 --km 12 --out outputs/my_area
-```
-**Expect a cold request to take several minutes** (~7 min for a 12 km radius over
-Clayton Valley on a home connection). It streams Sentinel‑2 COGs from a public S3
-bucket and mosaics up to 4 tiles × 8 bands, so the wall‑clock is dominated by network
-latency, not compute — the bands of a tile are fetched concurrently for that reason.
-Repeat requests for the same `(lat, lon, km)` are served from `outputs/jobs/` and
-return instantly.
-
-### D. Full quantum research pipeline (Hyperion)
-```bash
-./.venv/bin/pip install -r requirements.txt
-
-# 1) provide raw Hyperion scenes under data/, then preprocess to data/processed/*.npy
-#    (see data/README.md and the step1/step2 scripts)
-
-# 2) run all 7 methods + generate every figure/metric  (~1 h on CPU)
-./.venv/bin/python experiments/run_pipeline.py
-```
-Runtime is dominated by QAA parameter‑shift gradients; the QAE stage is a few minutes
-on CPU. Results land in `outputs/` (per‑method folders + `outputs/summary/`).
-
-To run without overwriting an existing set of results, redirect the output folder:
-```bash
-QMD_OUTPUT_DIR=outputs_rerun ./.venv/bin/python experiments/run_pipeline.py
-```
-
-On **Intel macOS** the last published PyTorch build is `2.2.2`; `pip install -r
-requirements.txt` resolves to it automatically. Note that the `gdal` Python binding
-is deliberately *not* a dependency — `rasterio` bundles its own GDAL and nothing here
-imports `osgeo`.
+Raw Hyperion TIFs (~17 GB), processed cubes, `node_modules` and build caches are gitignored.
 
 ---
 
@@ -292,31 +345,26 @@ imports `osgeo`.
 | QAE qubits / layers | 6 / 3 |
 | QAE training samples | 200 balanced (100 + / 100 −) |
 | QAA qubits / latent / trash | 6 / 2 / 4 |
-| Quantum backend | PennyLane simulator (no real hardware) |
+| Quantum backend | PennyLane simulator |
 | Test set | Scene 3 only (temporal hold‑out) |
-| Labels | 75th-percentile threshold on LiCI + VMI, training set only (OR logic) |
+| Labels | 75th‑percentile threshold on LiCI + VMI, training set only (OR logic) |
 
 A config hash is printed at pipeline start, so any parameter change is detectable.
 
 ---
 
-## Honest scope & limitations
+## Scope & limitations
 
-This is a **research prototype and candidate‑target generator**, not a discovery or
-guarantee tool. Stated plainly:
+TerraQ is a **research prototype and candidate‑target generator**, not a discovery tool.
 
-- **Quantum advantage is modest and not yet statistically significant** on the
-  Hyperion test set (Method C is the best performer, but McNemar C vs B p = 0.106).
-- **The live dashboard is classical**, not quantum — it uses Sentinel‑2 band‑ratio
-  indices (clay/Al‑OH for Li, iron‑oxide + mica for V).
-- **Optical remote sensing cannot see brine lithium** (dissolved underground) or
-  buried deposits — it detects *surface alteration* only.
-- **"Prospectivity" is a normalised 0–1 alteration score**, not a calibrated
-  probability and not proof of mineralisation. Bright anomalies away from known
-  deposits are **leads to investigate**, requiring field survey and drilling to confirm.
-- The quantum models run on a **simulator**; full‑scene pixel‑wise quantum inference
-  is not yet practical (state‑preparation + simulation cost), which is why wide‑area
-  scanning is done classically by design.
+- **The quantum lift is modest and not yet statistically significant** (McNemar C vs B, p = 0.106).
+- **Quantum models run on a simulator**, not real hardware. Full‑scene pixel‑wise quantum
+  inference is not yet practical, so wide‑area scanning is classical by design.
+- **The live console is classical** — Sentinel‑2 band‑ratio indices (clay / Al‑OH for Li,
+  iron‑oxide + mica for V).
+- **Optical sensing sees surface alteration only** — not brine lithium or buried deposits.
+- **Prospectivity is a normalised 0–1 alteration score**, not a calibrated probability.
+  Anomalies are leads that need field survey and drilling to confirm.
 
 ---
 
@@ -332,4 +380,7 @@ guarantee tool. Stated plainly:
 
 ---
 
-<p align="center"><sub>Research prototype · quantum‑classical mineral prospecting · figures and metrics are reproducible from <code>outputs/summary/</code>.</sub></p>
+<p align="center">
+  <img src="terraq/public/terraq-mark.png" alt="TerraQ" width="48"><br>
+  <sub><b>TerraQ</b> · Quantum Intelligence for Earth Exploration</sub>
+</p>

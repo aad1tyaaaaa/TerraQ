@@ -1,0 +1,13 @@
+# Render Blueprint — deploys the Python Sentinel-2 engine (product/server.py).
+# The Next.js dashboard deploys separately on Vercel (root directory: terraq/).
+services:
+  - type: web
+    name: terraq-engine
+    runtime: python
+    plan: free
+    buildCommand: pip install -r product/requirements.txt
+    startCommand: python -u product/server.py   # binds 0.0.0.0:$PORT
+    healthCheckPath: /
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.7
